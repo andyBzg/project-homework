@@ -1,11 +1,11 @@
 public class AverageUtils {
 
-    public static int findAverageOfTwoNumbers(int a, int b) {
-        return (a + b) / 2;
+    public static int findAverageOfTwoNumbers(int firstValue, int secondValue) {
+        return (firstValue + secondValue) / 2;
     }
 
-    public static int findAverageOfThreeNumbers(int a, int b, int c) {
-        return (a + b + c) / 3;
+    public static int findAverageOfThreeNumbers(int firstValue, int secondValue, int thirdValue) {
+        return (firstValue + secondValue + thirdValue) / 3;
     }
 
 }
