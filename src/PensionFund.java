@@ -2,7 +2,7 @@ public class PensionFund {
 
     private static final double RATIO = 0.02; //коэффициент пенсионного фонда
     private static int currentYear = 2022;
-    private final static int averagePensionInTheCountry = 1500;
+    private static final int averagePensionInTheCountry = 1500;
 
     private String fundName;
     private boolean statePension;
