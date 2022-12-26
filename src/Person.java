@@ -6,6 +6,7 @@ public class Person {
     private double weight;
     private int money;
 
+
     public Person(String name, int age, int height, double weight) {
         this.name = name;
         this.age = age;
