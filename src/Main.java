@@ -1,21 +1,19 @@
+
 public class Main {
     public static void main(String[] args) {
 
-//        Person father = new Person("Vasya", 36, 182, 75.6);
-//        Person mother = new Person("Akulina", 31, 164, 54.5);
-//        Person kid = new Person("Maloy", 5, 120, 25.6);
-//        Person grandfather = new Person("Ded", 79, 171, 80.1);
-//        Person postman = new Person();
+        PensionFund statePension = new PensionFund("Government", true, "12.01.1976");
+        PensionFund nonStatePension = new PensionFund("New-York lions bank", false, "12.01.1976");
 
-        PensionFund fathersPension = new PensionFund("Father", true, 1976);
-        PensionFund mothersPension = new PensionFund("Mother", false, 1976);
+        System.out.println(statePension.calculatePension(40, 1300, 2800));
+        System.out.println(nonStatePension.calculatePension(40, 1300, 2800));
 
-//        PensionFund.setCurrentYear(2030);
+        Worker worker = new Worker("Vasya", 40, 175, 86);
+        worker.die();
 
-        fathersPension.findEstimatedPension(1135, 2378);
-        mothersPension.findEstimatedPension(1135, 2378);
-
-
+        Pensioner pensioner = new Pensioner("Petya", 85, 175, 75);
+        pensioner.setPension(864.56);
+        pensioner.die();
 
     }
 }
