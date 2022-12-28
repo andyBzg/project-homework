@@ -19,7 +19,12 @@ public abstract class Person {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if (name.length() >= 2) {
+            this.name = name;
+        }
+        else {
+            System.err.println("Error. Name is too short");
+        }
     }
 
     public int getAge() {
@@ -27,10 +32,11 @@ public abstract class Person {
     }
 
     public void setAge(int age) {
-        if (age < 1 || age > 110) {
-            System.err.println("Incorrect age");
-        } else {
+        if (age > 0 && age < 110) {
             this.age = age;
+        }
+        else {
+            System.err.println("Incorrect age");
         }
     }
 
@@ -39,10 +45,10 @@ public abstract class Person {
     }
 
     public void setHeight(int height) {
-        if (height < 0) {
-            System.err.println("Incorrect height");
-        } else {
+        if (height > 40) {
             this.height = height;
+        } else {
+            System.err.println("Error. Person is too short");
         }
     }
 
@@ -51,10 +57,10 @@ public abstract class Person {
     }
 
     public void setWeight(int weight) {
-        if (weight < 0) {
-            System.err.println("Incorrect weight");
-        } else {
+        if (weight > 45) {
             this.weight = weight;
+        } else {
+            System.err.println("Error. Weight is too low");
         }
     }
 

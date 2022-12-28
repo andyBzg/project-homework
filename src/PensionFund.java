@@ -2,45 +2,31 @@ import java.util.Objects;
 
 public class PensionFund {
 
-    private static final double PENSION_RATIO = 0.02; //коэффициент пенсионного фонда
-    private static int currentYear = 2022;
+    private static final double PENSION_RATIO = 0.02;
     private static final int AVERAGE_PENSION_IN_THE_COUNTRY = 1500;
 
     private String name;
     private boolean isStatePension;
-    private final int openingYear;
+    private final String openingDate;
 
-    public PensionFund(String name, boolean isStatePension, int openingYear) {
+
+    public PensionFund(String name, boolean isStatePension, String openingDate) {
         this.name = name;
         this.isStatePension = isStatePension;
-        this.openingYear = openingYear;
+        this.openingDate = openingDate;
     }
 
-    public static void setCurrentYear(int newYear) {
-        if (newYear < currentYear) {
-            System.err.println("Please set correct year");
-        } else {
-            PensionFund.currentYear = newYear;
-        }
 
-    }
-
-    public void findEstimatedPension(double lowestSalary, double highestSalary) {
-        double estimatedPension = calculatePension(lowestSalary, highestSalary);
-        System.out.println(estimatedPension + " €$");
-    }
-
-    private double calculatePension(double lowestSalary, double highestSalary) {
+    public double calculatePension(int experience, double minSalary, double maxSalary) {
 
         double pension;
         if (isStatePension) {
-            pension = AverageUtils.findAverageOfTwoNumbers(lowestSalary, highestSalary);
+            pension = AverageUtils.findAverageOfTwoNumbers(minSalary, maxSalary);
             System.out.print("В государственном фонде ваша пенсия составит: ");
         } else {
-            pension = AverageUtils.findAverageOfThreeNumbers(lowestSalary, highestSalary, AVERAGE_PENSION_IN_THE_COUNTRY);
+            pension = AverageUtils.findAverageOfThreeNumbers(minSalary, maxSalary, AVERAGE_PENSION_IN_THE_COUNTRY);
             System.out.print("В не-государственном фонде ваша пенсия составит: ");
         }
-        int experience = currentYear - openingYear;
         pension *= (PENSION_RATIO * experience);
         return pension;
     }
@@ -54,15 +40,15 @@ public class PensionFund {
         PensionFund that = (PensionFund) o;
 
         if (isStatePension != that.isStatePension) return false;
-        if (openingYear != that.openingYear) return false;
-        return Objects.equals(name, that.name);
+        if (!Objects.equals(name, that.name)) return false;
+        return Objects.equals(openingDate, that.openingDate);
     }
 
     @Override
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
         result = 31 * result + (isStatePension ? 1 : 0);
-        result = 31 * result + openingYear;
+        result = 31 * result + (openingDate != null ? openingDate.hashCode() : 0);
         return result;
     }
 
@@ -71,7 +57,7 @@ public class PensionFund {
         return "PensionFund{" +
                 "name='" + name + '\'' +
                 ", isStatePension=" + isStatePension +
-                ", fundOpeningYear=" + openingYear +
+                ", OpeningYear=" + openingDate +
                 '}';
     }
 
