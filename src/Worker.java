@@ -1,4 +1,6 @@
-public class Worker extends Person {
+import java.util.Random;
+
+public class Worker extends Person implements AbleToCalculatePension {
 
     private double minSalary;
     private double maxSalary;
@@ -29,5 +31,15 @@ public class Worker extends Person {
     @Override
     public void die() {
         System.out.println("Этот человек не дожил до пенсии");
+    }
+
+    @Override
+    public double calculatePension() {
+        Random random = new Random();
+        boolean randomBoolean = random.nextBoolean();
+        String name = getName() + "'s Pension Fund";
+        int experience = getAge() - 18;
+        PensionFund pensionFund = new PensionFund(name, randomBoolean, "12.01.1976");
+        return pensionFund.calculatePension(experience, minSalary, maxSalary);
     }
 }
