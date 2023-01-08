@@ -19,7 +19,7 @@ public class Pensioner extends Person {
     @Override
     public void die() {
         double moneyEarned;
-        int age = this.getAge();
+        int age = getAge();
         moneyEarned = (age - 50) * pension;
         System.out.println("Этот пенсионер умер, он заработал: " + moneyEarned + " €$");
     }
