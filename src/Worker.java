@@ -16,7 +16,11 @@ public class Worker extends Person implements AbleToCalculatePension {
     }
 
     public void setMinSalary(double minSalary) {
-        this.minSalary = minSalary;
+        if (minSalary < 0) {
+            this.minSalary = minSalary;
+        }
+        else
+            System.err.println("minSalary. Incorrect value");
     }
 
     public double getMaxSalary() {
@@ -24,7 +28,11 @@ public class Worker extends Person implements AbleToCalculatePension {
     }
 
     public void setMaxSalary(double maxSalary) {
-        this.maxSalary = maxSalary;
+        if (maxSalary < 0) {
+            this.maxSalary = maxSalary;
+        }
+        else
+            System.out.println("maxSalary. Incorrect value");
     }
 
 
