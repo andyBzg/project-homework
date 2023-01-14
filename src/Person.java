@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public abstract class Person {
 
     private String name;
@@ -63,5 +65,35 @@ public abstract class Person {
         } else System.out.println("работаю");
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        Person person = (Person) o;
+
+        if (age != person.age) return false;
+        if (height != person.height) return false;
+        if (weight != person.weight) return false;
+        return Objects.equals(name, person.name);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + age;
+        result = 31 * result + height;
+        result = 31 * result + weight;
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", height=" + height +
+                ", weight=" + weight +
+                '}';
+    }
 }
