@@ -17,14 +17,14 @@ public class PensionFund {
     }
 
 
-    public double calculatePension(int experience, double minSalary, double maxSalary) {
+    public double calculatePensionPayment(int experience, double minSalary, double maxSalary) {
 
         double pension;
         if (isStatePension) {
-            pension = AverageUtils.findAverageOfTwoNumbers(minSalary, maxSalary);
+            pension = AverageUtils.findAverageOfNumbers(minSalary, maxSalary);
             System.out.print("В государственном фонде ваша пенсия составит: ");
         } else {
-            pension = AverageUtils.findAverageOfThreeNumbers(minSalary, maxSalary, AVERAGE_PENSION_IN_THE_COUNTRY);
+            pension = AverageUtils.findAverageOfNumbers(minSalary, maxSalary, AVERAGE_PENSION_IN_THE_COUNTRY);
             System.out.print("В не-государственном фонде ваша пенсия составит: ");
         }
         pension *= (PENSION_RATIO * experience);
@@ -60,6 +60,5 @@ public class PensionFund {
                 ", OpeningYear=" + openingDate +
                 '}';
     }
-
 
 }
