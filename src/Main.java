@@ -7,7 +7,7 @@ public class Main {
         System.out.println(worker.calculatePension());
 
 
-        PensionFund stateFund = new PensionFund("Goverment", FundType.STATE, "01.01.23");
+        PensionFund stateFund = new PensionFund("Government", FundType.STATE, "01.01.23");
         PensionFund nonStateFund = new PensionFund("Private", FundType.NON_STATE, "02.02.23");
         PensionFund fakeFund = new PensionFund("MMM", FundType.SCAMMERS, "03.03.23");
         System.out.println();
