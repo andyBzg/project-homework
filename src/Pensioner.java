@@ -48,8 +48,9 @@ public class Pensioner extends Person {
     @Override
     public String toString() {
         return "Pensioner{" +
+                "name=" + getName() +
+                "age=" + getAge() +
                 "pension=" + pension +
                 '}';
     }
-
 }
