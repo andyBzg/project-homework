@@ -6,31 +6,36 @@ public class PensionFund {
     private static final int AVERAGE_PENSION_IN_THE_COUNTRY = 1500;
 
     private String name;
-    private boolean isStatePension;
+    private FundType fundType;
     private final String openingDate;
 
 
-    public PensionFund(String name, boolean isStatePension, String openingDate) {
+    public PensionFund(String name, FundType fundType, String openingDate) {
         this.name = name;
-        this.isStatePension = isStatePension;
+        this.fundType = fundType;
         this.openingDate = openingDate;
     }
 
 
     public double calculatePensionPayment(int experience, double minSalary, double maxSalary) {
 
-        double pension;
-        if (isStatePension) {
-            pension = AverageUtils.findAverageOfNumbers(minSalary, maxSalary);
-            System.out.print("В государственном фонде ваша пенсия составит: ");
-        } else {
-            pension = AverageUtils.findAverageOfNumbers(minSalary, maxSalary, AVERAGE_PENSION_IN_THE_COUNTRY);
-            System.out.print("В не-государственном фонде ваша пенсия составит: ");
+        double pension = 0.0;
+
+        switch (fundType) {
+            case STATE:
+                pension = AverageUtils.findAverageOfNumbers(minSalary, maxSalary);
+                break;
+            case NON_STATE:
+                pension = AverageUtils.findAverageOfNumbers(minSalary, maxSalary, AVERAGE_PENSION_IN_THE_COUNTRY);
+                break;
+            case SCAMMERS:
+                System.out.println(fundType.getMessage() + " вас обокрали :(");
+                return 0.0;
         }
         pension *= (PENSION_RATIO * experience);
+        System.out.println(fundType.getMessage() + " фонде ваша пенсия составит: ");
         return pension;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -39,15 +44,15 @@ public class PensionFund {
 
         PensionFund that = (PensionFund) o;
 
-        if (isStatePension != that.isStatePension) return false;
         if (!Objects.equals(name, that.name)) return false;
+        if (fundType != that.fundType) return false;
         return Objects.equals(openingDate, that.openingDate);
     }
 
     @Override
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + (isStatePension ? 1 : 0);
+        result = 31 * result + (fundType != null ? fundType.hashCode() : 0);
         result = 31 * result + (openingDate != null ? openingDate.hashCode() : 0);
         return result;
     }
@@ -56,8 +61,8 @@ public class PensionFund {
     public String toString() {
         return "PensionFund{" +
                 "name='" + name + '\'' +
-                ", isStatePension=" + isStatePension +
-                ", OpeningYear=" + openingDate +
+                ", fundType=" + fundType +
+                ", openingDate='" + openingDate + '\'' +
                 '}';
     }
 
