@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class Worker extends Person implements AbleToCalculatePension {
 
     private double minSalary;
@@ -57,11 +55,9 @@ public class Worker extends Person implements AbleToCalculatePension {
 
     @Override
     public double calculatePension() {
-        Random random = new Random();
-        boolean randomBoolean = random.nextBoolean();
         String name = getName() + "'s Pension Fund";
         int experience = getAge() - 18;
-        PensionFund pensionFund = new PensionFund(name, randomBoolean, "12.01.1976");
+        PensionFund pensionFund = new PensionFund(name, FundType.STATE, "12.01.1976");
         return pensionFund.calculatePensionPayment(experience, minSalary, maxSalary);
     }
 
@@ -95,7 +91,9 @@ public class Worker extends Person implements AbleToCalculatePension {
     @Override
     public String toString() {
         return "Worker{" +
-                "minSalary=" + minSalary +
+                "name=" + getName() +
+                ", age=" + getAge() +
+                ", minSalary=" + minSalary +
                 ", maxSalary=" + maxSalary +
                 ", month=" + month +
                 ", sex=" + sex +
