@@ -2,8 +2,8 @@ public class Main {
     public static void main(String[] args) {
 
         Worker worker = new Worker("Vasya", 63, 170, 86);
-        worker.setMinSalary(1000);
-        worker.setMaxSalary(2300);
+        worker.setMinSalary(1551);
+        worker.setMaxSalary(2357);
         System.out.println(worker.calculatePension());
 
 
@@ -12,13 +12,13 @@ public class Main {
         PensionFund fakeFund = new PensionFund("MMM", FundType.SCAMMERS, "03.03.23");
         System.out.println();
 
-        double firstTest = stateFund.calculatePensionPayment(45, 1550, 2357);
+        double firstTest = stateFund.calculatePensionPayment(45, 1551, 2357);
         System.out.println(firstTest);
 
-        double secondTest = nonStateFund.calculatePensionPayment(45, 1550, 2357);
+        double secondTest = nonStateFund.calculatePensionPayment(45, 1551, 2357);
         System.out.println(secondTest);
 
-        double thirdTest = fakeFund.calculatePensionPayment(45, 1550, 2357);
+        double thirdTest = fakeFund.calculatePensionPayment(45, 1551, 2357);
         System.out.println(thirdTest);
     }
 }
