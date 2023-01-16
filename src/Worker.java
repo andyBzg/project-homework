@@ -57,7 +57,7 @@ public class Worker extends Person implements AbleToCalculatePension {
     public double calculatePension() {
         String name = getName() + "'s Pension Fund";
         int experience = getAge() - 18;
-        PensionFund pensionFund = new PensionFund(name, FundType.STATE, "12.01.1976");
+        PensionFund pensionFund = new PensionFund(name, FundType.getRandomType(), "12.01.1976");
         return pensionFund.calculatePensionPayment(experience, minSalary, maxSalary);
     }
 
