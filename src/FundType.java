@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public enum FundType {
 
     STATE("В государственном"),
@@ -12,6 +14,12 @@ public enum FundType {
 
     public String getMessage() {
         return message;
+    }
+
+    public static FundType getRandomType() {
+        FundType[] types = FundType.values();
+        Random random = new Random();
+        return types[random.nextInt(values().length)];
     }
 
 }
