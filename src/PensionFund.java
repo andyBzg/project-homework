@@ -19,7 +19,7 @@ public class PensionFund {
 
     public double calculatePensionPayment(int experience, double minSalary, double maxSalary) {
 
-        double pension = 0.0;
+        double pension;
 
         switch (fundType) {
             case STATE:
@@ -31,6 +31,8 @@ public class PensionFund {
             case SCAMMERS:
                 System.out.println(fundType.getMessage() + " вас обокрали :(");
                 return 0.0;
+            default:
+                pension = 0.0;
         }
         pension *= (PENSION_RATIO * experience);
         System.out.println(fundType.getMessage() + " фонде ваша пенсия составит: ");
