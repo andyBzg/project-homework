@@ -19,7 +19,7 @@ public enum Month {
         this.number = number;
     }
 
-    public double getNumber() { // геттер, сеттер создавать не надо
+    public double getNumber() { // геттер. сеттер создавать не надо
         return number;
     }
 }
