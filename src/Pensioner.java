@@ -23,6 +23,7 @@ public class Pensioner extends Person {
         int age = getAge();
         moneyEarned = (age - 50) * pension;
         System.out.println("Этот пенсионер умер, он заработал: " + moneyEarned + " €$");
+        System.out.println("Зато у меня " + getChildren().size() + " детей");
     }
 
     @Override
