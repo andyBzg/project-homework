@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Objects;
 
 public abstract class Person {
@@ -6,6 +7,7 @@ public abstract class Person {
     private int age;
     private int height;
     private int weight;
+    private List<String> children;
 
 
     public Person(String name, int age, int height, int weight) {
@@ -48,6 +50,13 @@ public abstract class Person {
             this.weight = weight;
     }
 
+    public List<String> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<String> children) {
+        this.children = children;
+    }
 
     public abstract void die();
 
@@ -75,7 +84,8 @@ public abstract class Person {
         if (age != person.age) return false;
         if (height != person.height) return false;
         if (weight != person.weight) return false;
-        return Objects.equals(name, person.name);
+        if (!Objects.equals(name, person.name)) return false;
+        return Objects.equals(children, person.children);
     }
 
     @Override
@@ -84,6 +94,7 @@ public abstract class Person {
         result = 31 * result + age;
         result = 31 * result + height;
         result = 31 * result + weight;
+        result = 31 * result + (children != null ? children.hashCode() : 0);
         return result;
     }
 
@@ -94,6 +105,7 @@ public abstract class Person {
                 ", age=" + age +
                 ", height=" + height +
                 ", weight=" + weight +
+                ", children=" + children +
                 '}';
     }
 }
