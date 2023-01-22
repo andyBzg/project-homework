@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Worker extends Person implements AbleToCalculatePension {
 
     private double minSalary;
@@ -9,6 +11,7 @@ public class Worker extends Person implements AbleToCalculatePension {
     public Worker(String name, int age, int height, int weight) {
         super(name, age, height, weight);
     }
+
 
     public double getMinSalary() {
         return minSalary;
@@ -57,8 +60,9 @@ public class Worker extends Person implements AbleToCalculatePension {
     public double calculatePension() {
         String name = getName() + "'s Pension Fund";
         int experience = getAge() - 18;
+        double minSalaryIncreasedPerChild = minSalary + getChildren().size() * 200;
         PensionFund pensionFund = new PensionFund(name, FundType.getRandomType(), "12.01.1976");
-        return pensionFund.calculatePensionPayment(experience, minSalary, maxSalary);
+        return pensionFund.calculatePensionPayment(experience, minSalaryIncreasedPerChild, maxSalary);
     }
 
     @Override
