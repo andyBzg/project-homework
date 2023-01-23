@@ -7,8 +7,12 @@ public abstract class Person {
     private int age;
     private int height;
     private int weight;
-    private List<String> children;
+    private List<Person> children;
 
+
+    public Person(String name) {
+        this.name = name;
+    }
 
     public Person(String name, int age, int height, int weight) {
         this.name = name;
@@ -50,11 +54,11 @@ public abstract class Person {
             this.weight = weight;
     }
 
-    public List<String> getChildren() {
+    public List<Person> getChildren() {
         return children;
     }
 
-    public void setChildren(List<String> children) {
+    public void setChildren(List<Person> children) {
         this.children = children;
     }
 

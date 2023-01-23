@@ -7,6 +7,9 @@ public class Worker extends Person implements AbleToCalculatePension {
     private Month month;
     private Sex sex;
 
+    public Worker(String name) {
+        super(name);
+    }
 
     public Worker(String name, int age, int height, int weight) {
         super(name, age, height, weight);
