@@ -2,19 +2,10 @@ import java.util.Random;
 
 public enum FundType {
 
-    STATE("В государственном"),
-    NON_STATE("В частном"),
-    SCAMMERS("Мошенники");
+    STATE,
+    NON_STATE,
+    SCAMMERS;
 
-    private String message;
-
-    FundType(String message) {
-        this.message = message;
-    }
-
-    public String getMessage() {
-        return message;
-    }
 
     public static FundType getRandomType() {
         FundType[] types = FundType.values();
