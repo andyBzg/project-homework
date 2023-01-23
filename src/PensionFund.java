@@ -29,13 +29,11 @@ public class PensionFund {
                 pension = AverageUtils.findAverageOfNumbers(minSalary, maxSalary, AVERAGE_PENSION_IN_THE_COUNTRY);
                 break;
             case SCAMMERS:
-                System.out.println(fundType.getMessage() + " вас обокрали :(");
                 return 0.0;
             default:
                 pension = 0.0;
         }
         pension *= (PENSION_RATIO * experience);
-        System.out.println(fundType.getMessage() + " фонде ваша пенсия составит: ");
         return pension;
     }
 
