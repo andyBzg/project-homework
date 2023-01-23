@@ -9,16 +9,16 @@ public class Main {
         worker.setMinSalary(1551);
         worker.setMaxSalary(2357.22);
 
-        List<String> list = new LinkedList<>();
-        list.add("Tanya");
-        list.add("Kolya");
+        List<Person> people = new ArrayList<>();
+        people.add(new Worker("Kolya"));
+        people.add(new Worker("Tanya"));
 
-        worker.setChildren(list);
+        worker.setChildren(people);
         System.out.println(worker.calculatePension());
         System.out.println();
 
         Pensioner pensioner = new Pensioner("Ivan Ivanovich", 98, 170, 86, 800.5);
-        pensioner.setChildren(list);
+        pensioner.setChildren(people);
         pensioner.die();
         System.out.println();
 
