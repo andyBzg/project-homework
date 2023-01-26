@@ -1,3 +1,6 @@
+package classes;
+
+import java.util.List;
 import java.util.Objects;
 
 public class PensionFund {
@@ -8,7 +11,16 @@ public class PensionFund {
     private String name;
     private FundType fundType;
     private final String openingDate;
+    private List<String> currencies;
 
+
+    public List<String> getCurrencies() {
+        return currencies;
+    }
+
+    public void setCurrencies(List<String> currencies) {
+        this.currencies = currencies;
+    }
 
     public PensionFund(String name, FundType fundType, String openingDate) {
         this.name = name;
@@ -59,7 +71,7 @@ public class PensionFund {
 
     @Override
     public String toString() {
-        return "PensionFund{" +
+        return "classes.PensionFund{" +
                 "name='" + name + '\'' +
                 ", fundType=" + fundType +
                 ", openingDate='" + openingDate + '\'' +

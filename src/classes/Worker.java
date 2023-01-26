@@ -1,4 +1,7 @@
+package classes;
+
 import java.util.List;
+import java.util.Objects;
 
 public class Worker extends Person implements AbleToCalculatePension {
 
@@ -6,6 +9,7 @@ public class Worker extends Person implements AbleToCalculatePension {
     private double maxSalary;
     private Month month;
     private Sex sex;
+    private List<Company> job;
 
     public Worker(String name) {
         super(name);
@@ -48,6 +52,15 @@ public class Worker extends Person implements AbleToCalculatePension {
         this.sex = sex;
     }
 
+    public List<Company> getJob() {
+        return job;
+    }
+
+    public void setJob(List<Company> job) {
+        this.job = job;
+    }
+
+
     public void setNewSalary() {
         double number = month.getNumber();
         minSalary *= number;
@@ -68,6 +81,13 @@ public class Worker extends Person implements AbleToCalculatePension {
         return pensionFund.calculatePensionPayment(experience, minSalaryIncreasedPerChild, maxSalary);
     }
 
+    public void showCompaniesPersonWorked () {
+        System.out.println("Я работал в следующих компаниях:");
+        for (Company company : job) {
+            System.out.println(company.getName());
+        }
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -79,7 +99,8 @@ public class Worker extends Person implements AbleToCalculatePension {
         if (Double.compare(worker.minSalary, minSalary) != 0) return false;
         if (Double.compare(worker.maxSalary, maxSalary) != 0) return false;
         if (month != worker.month) return false;
-        return sex == worker.sex;
+        if (sex != worker.sex) return false;
+        return Objects.equals(job, worker.job);
     }
 
     @Override
@@ -92,18 +113,18 @@ public class Worker extends Person implements AbleToCalculatePension {
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + (month != null ? month.hashCode() : 0);
         result = 31 * result + (sex != null ? sex.hashCode() : 0);
+        result = 31 * result + (job != null ? job.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
         return "Worker{" +
-                "name=" + getName() +
-                ", age=" + getAge() +
-                ", minSalary=" + minSalary +
+                "minSalary=" + minSalary +
                 ", maxSalary=" + maxSalary +
                 ", month=" + month +
                 ", sex=" + sex +
+                ", job=" + job +
                 '}';
     }
 }

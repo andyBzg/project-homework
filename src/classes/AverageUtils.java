@@ -1,3 +1,5 @@
+package classes;
+
 public class AverageUtils {
 
     public static double findAverageOfNumbers(double firstValue, double secondValue) {

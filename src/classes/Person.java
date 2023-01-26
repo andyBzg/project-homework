@@ -1,3 +1,5 @@
+package classes;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -68,6 +70,12 @@ public abstract class Person {
 
     public abstract void die();
 
+    public void showChildren() {
+        System.out.println("У меня " + children.size() + " детей");
+        for (Person child : children) {
+            System.out.println(child.name);
+        }
+    }
 
     public void info() {
         System.out.println(name);
@@ -108,7 +116,7 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "classes.Person{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", height=" + height +

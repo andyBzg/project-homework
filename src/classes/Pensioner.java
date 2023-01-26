@@ -1,3 +1,5 @@
+package classes;
+
 public class Pensioner extends Person {
 
     private double pension;

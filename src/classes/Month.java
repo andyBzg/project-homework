@@ -1,3 +1,5 @@
+package classes;
+
 public enum Month {
 
     JANUARY(1.1),
