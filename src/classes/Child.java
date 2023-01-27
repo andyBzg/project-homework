@@ -17,7 +17,7 @@ public class Child extends Person {
 
     @Override
     public String toString() {
-        return "Pensioner{" +
+        return "Child{" +
                 "name=" + getName() +
                 '}';
     }
