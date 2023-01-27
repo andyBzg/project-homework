@@ -1,6 +1,5 @@
 package classes;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -10,7 +9,7 @@ public abstract class Person {
     private int age;
     private int height;
     private int weight;
-    private List<Person> children;
+    private List<Child> children;
 
 
     public Person(String name) {
@@ -57,14 +56,11 @@ public abstract class Person {
             this.weight = weight;
     }
 
-    public List<Person> getChildren() {
-        if (children == null) {
-            return new ArrayList<>();
-        }
+    public List<Child> getChildren() {
         return children;
     }
 
-    public void setChildren(List<Person> children) {
+    public void setChildren(List<Child> children) {
         this.children = children;
     }
 
