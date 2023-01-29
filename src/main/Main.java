@@ -2,9 +2,7 @@ package main;
 
 import classes.*;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class Main {
@@ -26,12 +24,8 @@ public class Main {
         secondWorker.setAge(57);
         secondWorker.setMinSalary(1897);
         secondWorker.setMaxSalary(3531);
-        List<Child> kids = new ArrayList<>();
-        kids.add(new Child("Tanya"));
-        kids.add(new Child("Kolya"));
-        secondWorker.setChildren(kids);
         Set<PensionFund> secondPensionFundSet = new HashSet<>();
-        secondPensionFundSet.add(new PensionFund("", FundType.STATE, "01-01-2001"));
+        secondPensionFundSet.add(new PensionFund("", FundType.SCAMMERS, "01-01-2001"));
         secondPensionFundSet.add(new PensionFund("", FundType.NON_STATE, "01-01-2001"));
         secondWorker.setPensionFundSet(secondPensionFundSet);
 
