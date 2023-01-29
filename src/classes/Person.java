@@ -1,5 +1,6 @@
 package classes;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -57,6 +58,9 @@ public abstract class Person {
     }
 
     public List<Child> getChildren() {
+        if (children == null) {
+            children = new ArrayList<>();
+        }
         return children;
     }
 

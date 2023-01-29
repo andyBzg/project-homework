@@ -1,9 +1,6 @@
 package classes;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class Worker extends Person implements AbleToCalculatePension {
 
@@ -56,6 +53,9 @@ public class Worker extends Person implements AbleToCalculatePension {
     }
 
     public List<Company> getPreviousJob() {
+        if (previousJob == null) {
+            previousJob = new ArrayList<>();
+        }
         return previousJob;
     }
 
@@ -64,6 +64,9 @@ public class Worker extends Person implements AbleToCalculatePension {
     }
 
     public Set<PensionFund> getPensionFundSet() {
+        if (pensionFundSet == null) {
+            pensionFundSet = new HashSet<>();
+        }
         return pensionFundSet;
     }
 
@@ -89,6 +92,19 @@ public class Worker extends Person implements AbleToCalculatePension {
         double minSalaryIncreasedPerChild = minSalary + getChildren().size() * 200;
         PensionFund pensionFund = new PensionFund(name, FundType.getRandomType(), "12.01.1976");
         return pensionFund.calculatePensionPayment(experience, minSalaryIncreasedPerChild, maxSalary);
+    }
+
+    public double calculateBestPension() {
+        int experience = getAge() - 18;
+        double minSalaryIncreasedPerChild = minSalary + getChildren().size() * 200;
+        double topPayment = 0;
+        for (PensionFund fund : pensionFundSet) {
+            double result = fund.calculatePensionPayment(experience, minSalaryIncreasedPerChild, maxSalary);
+            if (result > topPayment) {
+                topPayment = result;
+            }
+        }
+        return topPayment;
     }
 
     public void showCompaniesPersonWorked() {
