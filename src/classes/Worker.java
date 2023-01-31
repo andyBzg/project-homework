@@ -4,6 +4,7 @@ import java.util.*;
 
 public class Worker extends Person implements AbleToCalculatePension {
 
+    private static int MONEY_PER_CHILD = 200;
     private double minSalary;
     private double maxSalary;
     private Month month;
@@ -89,14 +90,14 @@ public class Worker extends Person implements AbleToCalculatePension {
     public double calculatePension() {
         String name = getName() + "'s Pension Fund";
         int experience = getAge() - 18;
-        double minSalaryIncreasedPerChild = minSalary + getChildren().size() * 200;
+        double minSalaryIncreasedPerChild = minSalary + getChildren().size() * MONEY_PER_CHILD;
         PensionFund pensionFund = new PensionFund(name, FundType.getRandomType(), "12.01.1976");
         return pensionFund.calculatePensionPayment(experience, minSalaryIncreasedPerChild, maxSalary);
     }
 
     public double calculateBestPension() {
         int experience = getAge() - 18;
-        double minSalaryIncreasedPerChild = minSalary + getChildren().size() * 200;
+        double minSalaryIncreasedPerChild = minSalary + getChildren().size() * MONEY_PER_CHILD;
         double topPayment = 0;
         for (PensionFund fund : pensionFundSet) {
             double result = fund.calculatePensionPayment(experience, minSalaryIncreasedPerChild, maxSalary);
