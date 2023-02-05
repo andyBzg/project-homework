@@ -109,9 +109,15 @@ public class Worker extends Person implements AbleToCalculatePension {
     }
 
     public void showCompaniesPersonWorked() {
-        System.out.println("Я работал в следующих компаниях:");
+        System.out.println("Я работал в следующих компаниях: ");
+        boolean start = true;
         for (Company company : previousJob) {
-            System.out.println(company.getName());
+            if (start) {
+                System.out.print(company.getName());
+                start = false;
+            } else {
+                System.out.print(", " + company.getName());
+            }
         }
     }
 
