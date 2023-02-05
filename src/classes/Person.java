@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public abstract class Person {
+public abstract class Person implements Comparable<Person> {
 
     private String name;
     private int age;
@@ -88,6 +88,24 @@ public abstract class Person {
         if (age < 18 || age > 70) {
             System.out.println("отдыхаю дома");
         } else System.out.println("работаю");
+    }
+
+    @Override
+    public int compareTo(Person o) {
+        if (name.length() > o.getName().length()) {
+            return 1;
+        }
+        else if (name.length() < o.getName().length()) {
+            return -1;
+        }
+        else {
+            if (age > o.getAge()) {
+                return 1;
+            } else if (age < o.getAge()) {
+                return -1;
+            }
+        }
+        return 0;
     }
 
     @Override
