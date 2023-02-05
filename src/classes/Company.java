@@ -36,18 +36,22 @@ public class Company implements Comparable<Company> {
 
         Company company = (Company) o;
 
-        return Objects.equals(name, company.name);
+        if (!Objects.equals(name, company.name)) return false;
+        return Objects.equals(holidays, company.holidays);
     }
 
     @Override
     public int hashCode() {
-        return name != null ? name.hashCode() : 0;
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (holidays != null ? holidays.hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
         return "Company{" +
                 "name='" + name + '\'' +
+                ", holidays=" + holidays +
                 '}';
     }
 

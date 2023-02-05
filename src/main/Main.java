@@ -2,38 +2,40 @@ package main;
 
 import classes.*;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class Main {
     public static void main(String[] args) {
 
-        Set<PensionFund> firstPensionFundSet = new HashSet<>();
-        for (int i = 0; i < 10; i++) {
-            firstPensionFundSet.add(new PensionFund("", FundType.getRandomType(), "27-01-2023"));
-        }
+        Child child = new Child("Vasyan");
+        child.setAge(45);
 
-        Worker firstWorker = new Worker("Vasya");
+        Worker secondWorker = new Worker("Thomas");
+        secondWorker.setAge(50);
 
-        firstWorker.setAge(63);
-        firstWorker.setMinSalary(1350);
-        firstWorker.setMaxSalary(2357);
-        firstWorker.setPensionFundSet(firstPensionFundSet);
-
-        Worker secondWorker = new Worker("Petya");
-        secondWorker.setAge(57);
-        secondWorker.setMinSalary(1897);
-        secondWorker.setMaxSalary(3531);
-        Set<PensionFund> secondPensionFundSet = new HashSet<>();
-        secondPensionFundSet.add(new PensionFund("", FundType.SCAMMERS, "01-01-2001"));
-        secondPensionFundSet.add(new PensionFund("", FundType.NON_STATE, "01-01-2001"));
-        secondWorker.setPensionFundSet(secondPensionFundSet);
+        System.out.println(child.compareTo(secondWorker));
 
 
-        double firstResult = firstWorker.calculateBestPension();
-        System.out.println(firstResult);
-        double secondResult = secondWorker.calculateBestPension();
-        System.out.println(secondResult);
+        Company firstCompany = new Company("Adidas");
+        Map<String, String> adidasHolidays = new HashMap<>();
+        adidasHolidays.put("Новый год", "1 января");
+        adidasHolidays.put("Д/р основателя", "3 ноября");
+        firstCompany.setHolidays(adidasHolidays);
+
+        System.out.println(firstCompany);
+
+
+        Company secondCompany = new Company("Ryanair");
+        Map<String, String> ryanairHolidays = new HashMap<>();
+        ryanairHolidays.put("День святого патрика", "17 марта");
+        ryanairHolidays.put("Рождество", "25 декабря");
+        ryanairHolidays.put("Всемирный день кошек", "8 августа");
+        secondCompany.setHolidays(ryanairHolidays);
+
+        System.out.println(secondCompany);
+
 
     }
 }
