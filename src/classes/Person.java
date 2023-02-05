@@ -92,20 +92,10 @@ public abstract class Person implements Comparable<Person> {
 
     @Override
     public int compareTo(Person o) {
-        if (name.length() > o.getName().length()) {
-            return 1;
+        if (name.compareTo(o.getName()) == 0) {
+            return Integer.compare(age, o.getAge());
         }
-        else if (name.length() < o.getName().length()) {
-            return -1;
-        }
-        else {
-            if (age > o.getAge()) {
-                return 1;
-            } else if (age < o.getAge()) {
-                return -1;
-            }
-        }
-        return 0;
+        return name.compareTo(o.getName());
     }
 
     @Override
