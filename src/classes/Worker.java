@@ -88,14 +88,6 @@ public class Worker extends Person implements AbleToCalculatePension {
 
     @Override
     public double calculatePension() {
-        String name = getName() + "'s Pension Fund";
-        int experience = getAge() - 18;
-        double minSalaryIncreasedPerChild = minSalary + getChildren().size() * MONEY_PER_CHILD;
-        PensionFund pensionFund = new PensionFund(name, FundType.getRandomType(), "12.01.1976");
-        return pensionFund.calculatePensionPayment(experience, minSalaryIncreasedPerChild, maxSalary);
-    }
-
-    public double calculateBestPension() {
         int experience = getAge() - 18;
         double minSalaryIncreasedPerChild = minSalary + getChildren().size() * MONEY_PER_CHILD;
         double topPayment = 0;
