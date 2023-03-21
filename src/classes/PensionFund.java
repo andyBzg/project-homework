@@ -14,18 +14,39 @@ public class PensionFund {
     private List<String> currencies;
 
 
+    public PensionFund(String name, FundType fundType, String openingDate) {
+        this.name = name;
+        this.fundType = fundType;
+        this.openingDate = openingDate;
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public FundType getFundType() {
+        return fundType;
+    }
+
+    public void setFundType(FundType fundType) {
+        this.fundType = fundType;
+    }
+
+    public String getOpeningDate() {
+        return openingDate;
+    }
+
     public List<String> getCurrencies() {
         return currencies;
     }
 
     public void setCurrencies(List<String> currencies) {
         this.currencies = currencies;
-    }
-
-    public PensionFund(String name, FundType fundType, String openingDate) {
-        this.name = name;
-        this.fundType = fundType;
-        this.openingDate = openingDate;
     }
 
 
@@ -71,11 +92,9 @@ public class PensionFund {
 
     @Override
     public String toString() {
-        return "classes.PensionFund{" +
-                "name='" + name + '\'' +
-                ", fundType=" + fundType +
-                ", openingDate='" + openingDate + '\'' +
-                '}';
+        return name +
+                ", Type: " + fundType +
+                ", Established: " + openingDate;
     }
 
 }
