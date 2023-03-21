@@ -20,6 +20,20 @@ public class Worker extends Person implements AbleToCalculatePension {
         super(name, age, height, weight);
     }
 
+    public Worker(int age) {
+        super(age);
+    }
+
+    public Worker(String name, int age, Sex sex) {
+        super(name);
+        super.setAge(age);
+        this.sex = sex;
+    }
+
+    public Worker(int age, Sex sex) {
+        super(age);
+        this.sex = sex;
+    }
 
     public double getMinSalary() {
         return minSalary;
@@ -144,12 +158,6 @@ public class Worker extends Person implements AbleToCalculatePension {
 
     @Override
     public String toString() {
-        return "Worker{" +
-                "minSalary=" + minSalary +
-                ", maxSalary=" + maxSalary +
-                ", month=" + month +
-                ", sex=" + sex +
-                ", job=" + previousJob +
-                '}';
+        return getName() + ", " + getAge() + ", " + getSex();
     }
 }
