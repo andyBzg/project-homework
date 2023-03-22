@@ -1,5 +1,7 @@
 package classes;
 
+import enums.FundType;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -25,6 +27,7 @@ public class FundGenerator {
                     String.valueOf(random.nextInt(1900, 2000))
             ));
         }
+        bufferedReader.close();
 
         return funds;
     }

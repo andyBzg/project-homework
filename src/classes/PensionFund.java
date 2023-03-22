@@ -1,5 +1,7 @@
 package classes;
 
+import enums.FundType;
+
 import java.util.List;
 import java.util.Objects;
 

@@ -1,4 +1,4 @@
-package classes;
+package enums;
 
 import java.util.Random;
 
