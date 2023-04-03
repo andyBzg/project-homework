@@ -14,6 +14,8 @@ public class FundGenerator {
     public static List<PensionFund> generate() {
 
         String path = "resources/fund.txt";
+        int startYear = 1900;
+        int endYear = 2000;
 
         Random random = new Random();
         List<PensionFund> funds = new ArrayList<>();
@@ -24,7 +26,7 @@ public class FundGenerator {
                 funds.add(new PensionFund(
                         line,
                         FundType.getRandomType(),
-                        String.valueOf(random.nextInt(1900, 2000))
+                        String.valueOf(random.nextInt(startYear, endYear))
                 ));
             }
         }
