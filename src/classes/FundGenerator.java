@@ -11,16 +11,14 @@ import java.util.Random;
 
 public class FundGenerator {
 
-    public static List<PensionFund> generate() {
+    private static final String FILE_PATH = "resources/fund.txt";
 
-        String path = "resources/fund.txt";
-        int startYear = 1900;
-        int endYear = 2000;
+    public static List<PensionFund> generate(int startYear, int endYear) {
 
         Random random = new Random();
         List<PensionFund> funds = new ArrayList<>();
 
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(FILE_PATH))) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 funds.add(new PensionFund(

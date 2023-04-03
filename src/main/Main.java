@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        List<PensionFund> pensionFunds = FundGenerator.generate();
+        List<PensionFund> pensionFunds = FundGenerator.generate(1900, 2000);
 
         pensionFunds.stream()
                 .filter(f -> f.getFundType() != null)
