@@ -4,11 +4,11 @@ public class RARArchivator extends Archivator {
 
     @Override
     public void archive(String fileName) {
-        System.out.println("file archived");
+        System.out.printf("file '%s' archived\n", fileName);
     }
 
     @Override
     public void dearchive(String fileName) {
-        System.out.println("file dearchived");
+        System.out.printf("file '%s' dearchived\n", fileName);
     }
 }
