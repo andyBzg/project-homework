@@ -1,4 +1,4 @@
-package generics;
+package org.crazymages.generics;
 
 public class DataBaseWriter<T> {
 
@@ -12,7 +12,7 @@ public class DataBaseWriter<T> {
     }
 
     public void save() {
-        System.out.printf("данные в бд записаны, тип данных = %s", value.getClass());
+        System.out.printf("данные в базу данных %s записаны, тип данных = %s\n", database, value.getClass());
     }
 
 }
