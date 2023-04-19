@@ -1,6 +1,6 @@
 package org.crazymages;
 
-import org.crazymages.classes.VacationCalculator;
+import org.crazymages.classes.Vacation;
 
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
@@ -15,7 +15,8 @@ public class Main {
             int days = scanner.nextInt();
             System.out.print("Enter the number of people: ");
             int people = scanner.nextInt();
-            int answer = VacationCalculator.calculate(days, people);
+            Vacation vacation = new Vacation(days, people);
+            int answer = vacation.calculate();
             System.out.println("Total vacation days " + answer);
         }
         catch (InputMismatchException e) {
