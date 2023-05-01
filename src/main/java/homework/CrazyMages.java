@@ -1,4 +1,4 @@
-package classwork.annotation;
+package homework;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
