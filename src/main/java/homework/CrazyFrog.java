@@ -8,8 +8,8 @@ import static java.lang.annotation.ElementType.*;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(value={TYPE, FIELD})
-public @interface CrazyMages {
+public @interface CrazyFrog {
 
-    String value() default "0";
+    String value();
 
 }
